@@ -71,33 +71,19 @@ function App() {
 
   const navMenuRef = useRef(null);
 
-  //getting and setting the device screen width
+  //GETTING SCREEN WIDTH AND SETTING SLIDES
   useEffect(() => {
     setWindowWidth(window.innerWidth);
     console.log(windowWidth);
 
+    //setting mainImg upon page load
     if (windowWidth < 600) {
       setSlideImg(mobileImg1);
     } else {
       setSlideImg(desktopImg1);
     }
 
-    //make slides change every 10 secs
-    // setInterval(() => {
-    //   if (slideNum > 0 && slideNum < 4) {
-    //     setSlideNum(slideNum + 1);
-    //   } else if (slideNum > 3) {
-    //     setSlideNum(1);
-    //   }
-
-    //   console.log(slideNum);
-    // }, 2000);
-  }, [windowWidth]);
-
-  //update slide image
-  useEffect(() => {
-    //THE CODE WORKS BUT THE ISSUE IS THAT ON MOBILE DEVICES THE SCREEN KEEPS STRETCHING SO THE MOBILE IMAGE CONDITION FAILS TO BE MET,WHEN YOU'RE BACK FIX THE ISSUE,I HAVE A FEELING IT HAS SOMETHING TO DO WITH THE WAY THE NAV BAR IS SET UP
-
+    //update slide image as slideNum changes
     if (windowWidth < 600) {
       if (slideNum === 1) {
         setSlideImg(mobileImg1);
@@ -119,7 +105,20 @@ function App() {
         setSlideImg(desktopImg3);
       }
     }
-  }, [slideNum]);
+  }, [windowWidth, slideNum]);
+
+  //MAKE SLIDES CHANGE EVERY 10SECS
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     if (slideNum > 0 && slideNum < 4) {
+  //       setSlideNum(slideNum + 1);
+  //     } else if (slideNum > 3) {
+  //       setSlideNum(1);
+  //     }
+
+  //     console.log(slideNum);
+  //   }, 2000);
+  // }, [slideNum]);
 
   const prevSlide = () => {
     if (slideNum === 1) {
