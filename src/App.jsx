@@ -180,14 +180,14 @@ function App() {
 
           <img src={slideImg} alt="" className="min-h-full" />
 
-          {/* <div className="absolute bottom-0 right-0 md:hidden flex flex-row items-center">
+          <div className="absolute bottom-0 right-0 md:hidden flex flex-row items-center">
             <button className="ctrlBtn" onClick={prevSlide}>
               {iconLeft}
             </button>
             <button className="ctrlBtn" onClick={nextSlide}>
               {iconRight}
             </button>
-          </div> */}
+          </div>
         </motion.div>
 
         <div className="topTextContainer">

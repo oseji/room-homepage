@@ -35,7 +35,7 @@ nav {
 }
 
 .homeBox {
-  @apply bg-auto  bg-no-repeat w-full h-auto md:w-6/10;
+  @apply relative bg-auto  bg-no-repeat w-full h-auto md:w-6/10;
 }
 
 .text {
@@ -51,7 +51,7 @@ nav {
 }
 
 .ctrlBtnGrp {
-  @apply w-auto flex flex-row items-center;
+  @apply w-auto hidden md:flex flex-row items-center;
 }
 
 .ctrlBtn {
