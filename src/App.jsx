@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+
 import imgAboutDark from "./assets/image-about-dark.jpg";
 import imgABoutLight from "./assets/image-about-light.jpg";
 
@@ -67,6 +68,7 @@ function App() {
   const [iconMenu, setIconMenu] = useState(hamburger);
   const [slideNum, setSlideNum] = useState(1);
   const [slideImg, setSlideImg] = useState(desktopImg1);
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const navMenuRef = useRef(null);
@@ -107,19 +109,6 @@ function App() {
     }
   }, [windowWidth, slideNum]);
 
-  //MAKE SLIDES CHANGE EVERY 10SECS
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     if (slideNum > 0 && slideNum < 4) {
-  //       setSlideNum(slideNum + 1);
-  //     } else if (slideNum > 3) {
-  //       setSlideNum(1);
-  //     }
-
-  //     console.log(slideNum);
-  //   }, 2000);
-  // }, [slideNum]);
-
   const prevSlide = () => {
     if (slideNum === 1) {
       setSlideNum(1);
@@ -144,8 +133,8 @@ function App() {
     <div className="App">
       <section className="topSection">
         <motion.div
-          initial={{ opacity: 0, x: -200 }}
-          animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+          initial={{ opacity: 0, y: -200 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
           className="homeBox"
         >
           <nav>
@@ -178,7 +167,7 @@ function App() {
             </div>
           </nav>
 
-          <img src={slideImg} alt="" className="min-h-full" />
+          <img src={slideImg} alt="" className="min-h-full w-full md:w-auto" />
 
           <div className="absolute bottom-0 right-0 md:hidden flex flex-row items-center">
             <button className="ctrlBtn" onClick={prevSlide}>
@@ -193,8 +182,8 @@ function App() {
         <div className="topTextContainer">
           {slideNum === 1 && (
             <motion.div
-              initial={{ opacity: 0, x: 200 }}
-              animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+              initial={{ opacity: 0, y: 200 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
               className="topTextBox"
             >
               <h1 className="text-4xl font-bold mb-5">
@@ -217,8 +206,8 @@ function App() {
 
           {slideNum === 2 && (
             <motion.div
-              initial={{ opacity: 0, x: 200 }}
-              animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+              initial={{ opacity: 0, y: 200 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
               className="topTextBox"
             >
               <h1 className="text-4xl font-bold mb-5">
@@ -241,8 +230,8 @@ function App() {
 
           {slideNum === 3 && (
             <motion.div
-              initial={{ opacity: 0, x: 200 }}
-              animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+              initial={{ opacity: 0, y: 200 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
               className="topTextBox"
             >
               <h1 className="text-4xl font-bold mb-5">
@@ -276,21 +265,26 @@ function App() {
 
       <section className="bottomSection">
         <motion.div
-          initial={{ opacity: 0, x: -200 }}
-          whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
           className="bottomImgBox"
         >
           <img src={imgAboutDark} className="min-h-full" alt="" />
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0.2 },
+          }}
           className="bottomTextBox"
         >
           <h1 className="text-lg tracking-widest font-bold mb-3 uppercase">
             About our furniture
           </h1>
+
           <p className="text mb-5">
             We provide unmatched quality,comfort and style for property owners
             across the country.Our experts combine form and function in bringing
@@ -301,8 +295,12 @@ function App() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 200 }}
-          whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0.3 },
+          }}
           className="bottomImgBox"
         >
           <img src={imgABoutLight} className="min-h-full" alt="" />
